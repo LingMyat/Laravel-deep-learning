@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Test;
+use App\Test1;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // $this->app->bind('test',function(){
+        //     return new Test();
+        // });
+        // $this->app->bind('test1',function(){
+        //             return new Test1();
+        //     });
     }
 
     /**

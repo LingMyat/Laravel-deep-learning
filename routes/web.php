@@ -1,10 +1,13 @@
 <?php
 
+use App\Test;
+use App\Container;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Route;
-
-
+use App\Test1;
+use App\TestFacade;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// route::get("/",function(){
+//     $container = new Container;
+//     $container->bind('test',function(){
+//         return new Test();
+//     });
+//     $test = $container->resolve('test');
+//     dd($test->name);
+// });
+
+route::get("/",function(){
+    // $view = new View();
+    // $view->make('welcome');
+
+
+
+    dd(app('test1')->testing());
+
+});
+
 
 route::resource('blog',HomeController::class)->middleware(['auth:sanctum', 'verified']);
 route::get('/logout',[AuthController::class , 'logout']);

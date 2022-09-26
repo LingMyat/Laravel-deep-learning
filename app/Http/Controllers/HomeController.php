@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Test;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -56,6 +57,7 @@ class HomeController extends Controller
      */
     public function show(Post $blog)
     {
+
         $this->authorize('view',$blog);
         return view('show',['data'=>$blog]);
     }
