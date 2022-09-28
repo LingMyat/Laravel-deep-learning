@@ -14,6 +14,24 @@
               </div>
         </div>
         <div class="card-body">
+            @if (session('created'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success! </strong>{{ session('created') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              @elseif (session('edited'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success! </strong>{{ session('edited') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @elseif (session('deleted'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('deleted') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
+
             @foreach ($data as $row )
             <h5 class="card-title">{{$row->name}}</h5>
             <p class="card-text">{{$row->description}}</p>
